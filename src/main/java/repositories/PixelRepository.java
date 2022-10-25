@@ -2,11 +2,11 @@ package repositories;
 
 import entities.Pixel;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface PixelRepository {
 
-    ArrayList<Pixel> getAllPixels();
+    HashMap<Integer, Pixel> getAllPixels();
 
     Pixel updatePixel(int id);
 }

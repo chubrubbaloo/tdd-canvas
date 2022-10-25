@@ -1,7 +1,6 @@
 package entities;
 
 public class Pixel {
-    private int id;
     private final int x;
     private final int y;
     private String color;
@@ -10,10 +9,6 @@ public class Pixel {
         this.x = x;
         this.y = y;
         this.color = color;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getX() {
