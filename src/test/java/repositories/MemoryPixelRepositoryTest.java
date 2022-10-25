@@ -41,13 +41,6 @@ class MemoryPixelRepositoryTest {
 
     @Test
     void testUpdatePixel(){
-        Pixel pixel1 = mock(Pixel.class);
-        when(pixel1.getX()).thenReturn(5);
-        when(pixel1.getY()).thenReturn(2);
-        when(pixel1.getColor()).thenReturn("green");
-
-
-
 
     }
 
