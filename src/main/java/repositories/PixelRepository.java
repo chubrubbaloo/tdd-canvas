@@ -7,5 +7,5 @@ public interface PixelRepository {
 
     ArrayList<Pixel> getAllPixels();
 
-    Pixel updatePixel(int id);
+    Pixel updatePixel(Pixel pixel);
 }

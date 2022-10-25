@@ -14,7 +14,7 @@ public class MemoryPixelRepository implements PixelRepository{
     }
 
     @Override
-    public Pixel updatePixel(int id) {
+    public Pixel updatePixel(Pixel pixel) {
         return null;
     }
 }
