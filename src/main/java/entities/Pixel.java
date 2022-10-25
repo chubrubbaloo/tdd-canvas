@@ -27,4 +27,16 @@ public class Pixel {
         this.color = color;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Pixel pixel)){
+            return false;
+        }
+        return pixel.getX() == this.getX() && pixel.getY() == this.getY();
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getX()*100000+this.getY();
+    }
 }
