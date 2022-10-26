@@ -10,13 +10,13 @@ public class MemoryPixelRepository implements PixelRepository{
 
     @Override
     public ArrayList<Pixel> getAllPixels() {
-        return pixels;
+        return new ArrayList<>(pixels.stream().map(Pixel::new).toList());
     }
 
     @Override
     public Pixel updatePixel(Pixel pixel) {
         pixels.remove(pixel);
-        pixels.add(pixel);
+        pixels.add(new Pixel(pixel));
         return pixel;
     }
 }

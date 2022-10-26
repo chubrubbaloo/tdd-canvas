@@ -20,6 +20,20 @@ class PixelTest {
     }
 
     @Test
+    void PixelCopiedCorrectly(){
+        int x = 0;
+        int y = 0;
+        String color = "green";
+
+        Pixel pixel = new Pixel(x, y, color);
+        Pixel pixelCopy = new Pixel(pixel);
+
+        assertEquals(pixel.getX(), pixelCopy.getX());
+        assertEquals(pixel.getY(), pixelCopy.getY());
+        assertEquals(pixel.getColor(), pixelCopy.getColor());
+    }
+
+    @Test
     void PixelChangeColorCorrectly(){
         int x = 0;
         int y = 0;
@@ -32,7 +46,16 @@ class PixelTest {
     }
 
     @Test
-    void testingEquals(){
+    void EqualsItself(){
+        int x = 0;
+        int y = 0;
+        String color1 = "green";
+        Pixel pixel1 = new Pixel(x, y, color1);
+        assertEquals(pixel1, pixel1);
+    }
+
+    @Test
+    void EqualsDifferentPixel(){
         int x = 0;
         int y = 0;
         String color1 = "green";
@@ -43,7 +66,7 @@ class PixelTest {
     }
 
     @Test
-    void testingNotEquals(){
+    void NotEqualsDifferentPixel(){
         int x1 = 0;
         int y1 = 0;
         int x2 = 0;

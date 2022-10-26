@@ -11,6 +11,12 @@ public class Pixel {
         this.color = color;
     }
 
+    public Pixel(Pixel pixel){
+        this.x = pixel.x;
+        this.y = pixel.y;
+        this.color = pixel.color;
+    }
+
     public int getX() {
         return x;
     }
@@ -33,10 +39,5 @@ public class Pixel {
             return false;
         }
         return pixel.getX() == this.getX() && pixel.getY() == this.getY();
-    }
-
-    @Override
-    public int hashCode() {
-        return this.getX()*100000+this.getY();
     }
 }
