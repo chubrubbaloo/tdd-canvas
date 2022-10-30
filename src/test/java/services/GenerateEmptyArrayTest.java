@@ -1,13 +1,12 @@
 package services;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-class CanvasServiceTest {
+class GenerateEmptyArrayTest {
 
     @Test
     @DisplayName("Test to see if 2D array has generated the right amount of columns")
