@@ -1,5 +1,6 @@
 import controller.CanvasController;
 import io.javalin.Javalin;
+import io.javalin.testtools.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repositories.MemoryPixelRepository;
@@ -21,7 +22,4 @@ class CanvasRestApiTest {
     }
 
     // ingen JavalinTest class? wth...
-    @Test
-    void EmptyCanvas(){
-    }
 }

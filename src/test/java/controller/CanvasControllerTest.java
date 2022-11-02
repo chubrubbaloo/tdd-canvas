@@ -30,7 +30,6 @@ class CanvasControllerTest {
     @Test
     void getCanvasRespondsWithACanvas(){
         Mockito.when(service.getPixels()).thenReturn(expectedResult);
-        Mockito.when(context.json(expectedResult)).thenReturn(context);
         controller.getCanvas(context);
         Mockito.verify(context).json(expectedResult);
     }
@@ -40,7 +39,6 @@ class CanvasControllerTest {
         Pixel pixel = new Pixel(1,2,"blue");
 
         Mockito.when(context.bodyAsClass(Pixel.class)).thenReturn(pixel);
-        Mockito.when(context.json(pixel)).thenReturn(context);
         Assertions.assertDoesNotThrow( () ->
                 Mockito.when(service.putPixel(pixel.getX(), pixel.getY(), pixel.getColor())).thenReturn(pixel)
         );
@@ -50,8 +48,6 @@ class CanvasControllerTest {
 
     @Test
     void putCanvasBadlyRespondsWith400(){
-        //Mockito.when(context.bodyAsClass(Pixel.class)).thenThrow(Exception.class);
-        Mockito.when(context.status(400)).thenReturn(context);
         Assertions.assertDoesNotThrow( () -> controller.putPixel(context));
         Mockito.verify(context).status(400);
     }
