@@ -21,8 +21,8 @@ class PixelTest {
 
     @Test
     void PixelConstructorThrowsWithBadArguments(){
-        assertThrows(IllegalArgumentException.class, () -> new Pixel(0, 1, "blue"));
-        assertThrows(IllegalArgumentException.class, () -> new Pixel(2, 0, "blue"));
+        assertThrows(IllegalArgumentException.class, () -> new Pixel(-1, 1, "blue"));
+        assertThrows(IllegalArgumentException.class, () -> new Pixel(2, -1, "blue"));
         assertThrows(IllegalArgumentException.class, () -> new Pixel(1, 2, null));
     }
 
