@@ -18,6 +18,21 @@ public class CanvasService {
         return colorArr;
     }
 
+    public String[][] getPixels() {
+        var query = repository.getAllPixels();
+
+        var colors = generateEmptyArray(2);
+        for (var pixel:query){
+            if( pixel.getX() < colors.length) {
+                if (pixel.getY() < colors[pixel.getX()].length) {
+                    colors[pixel.getX()][pixel.getY()] = pixel.getColor();
+                }
+            }
+        }
+        return colors;
+    }
+
+
     private final PixelRepository repository;
 
     public CanvasService (PixelRepository repository) { this.repository = repository;}
