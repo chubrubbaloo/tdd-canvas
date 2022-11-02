@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import repositories.MemoryPixelRepository;
 
-public class CanvasServiceTest {
+public class PutPixelServiceTest {
 
     MemoryPixelRepository repository;
     CanvasService service;
