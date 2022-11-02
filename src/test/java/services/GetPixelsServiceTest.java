@@ -24,7 +24,7 @@ public class GetPixelsServiceTest {
     }
 
     @Test
-    @DisplayName("Get empty canvas (2x3-array)")
+    @DisplayName("Get empty canvas (50x75-array)")
     void get_empty_canvas_array() {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
@@ -40,7 +40,7 @@ public class GetPixelsServiceTest {
     }
 
     @Test
-    @DisplayName("Get white canvas (2x3-array)")
+    @DisplayName("Get white canvas (50x75-array)")
     void get_white_canvas_from_pixels() {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
@@ -56,7 +56,7 @@ public class GetPixelsServiceTest {
     }
 
     @Test
-    @DisplayName("Get canvas (real-array)")
+    @DisplayName("Get canvas ('real'-array)")
     void get_real_canvas_from_pixels() {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
