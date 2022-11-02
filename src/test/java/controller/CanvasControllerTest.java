@@ -48,6 +48,7 @@ class CanvasControllerTest {
 
     @Test
     void putCanvasBadlyRespondsWith400(){
+        Mockito.when(context.bodyAsClass(Pixel.class)).thenReturn(null);
         Assertions.assertDoesNotThrow( () -> controller.putPixel(context));
         Mockito.verify(context).status(400);
     }
