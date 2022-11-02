@@ -1,10 +1,10 @@
-import io.javalin.Javalin;
+import controller.CanvasController;
+import repositories.MemoryPixelRepository;
+import services.CanvasService;
+
 
 public class Main {
     public static void main(String[] args) {
-        Javalin app = Javalin.create();
-
-        app.get("/", ctx -> ctx.result("Hello World"));
-        app.start(7070);
+        CanvasRestApi.getApp(new CanvasController(new CanvasService( new MemoryPixelRepository())));
     }
 }
