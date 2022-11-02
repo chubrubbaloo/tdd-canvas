@@ -21,7 +21,7 @@ public class CanvasService {
     public String[][] getPixels() {
         var query = repository.getAllPixels();
 
-        var colors = generateEmptyArray(2);
+        var colors = generateEmptyArray(50);
         for (var pixel:query){
             if( pixel.getX() < colors.length) {
                 if (pixel.getY() < colors[pixel.getX()].length) {

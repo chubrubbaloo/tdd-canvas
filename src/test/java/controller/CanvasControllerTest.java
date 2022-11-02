@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import services.CanvasService;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 class CanvasControllerTest {
@@ -37,8 +38,12 @@ class CanvasControllerTest {
     @Test
     void putCanvasRespondsWithPixelData(){
         Pixel pixel = new Pixel(1,2,"blue");
+        var data = new HashMap<String, Object>();
+        data.put("x", 1);
+        data.put("y", 2);
+        data.put("color", "blue");
 
-        Mockito.when(context.bodyAsClass(Pixel.class)).thenReturn(pixel);
+        Mockito.when(context.bodyAsClass(HashMap.class)).thenReturn(data);
         Assertions.assertDoesNotThrow( () ->
                 Mockito.when(service.putPixel(pixel.getX(), pixel.getY(), pixel.getColor())).thenReturn(pixel)
         );
@@ -48,7 +53,7 @@ class CanvasControllerTest {
 
     @Test
     void putCanvasBadlyRespondsWith400(){
-        Mockito.when(context.bodyAsClass(Pixel.class)).thenReturn(null);
+        Mockito.when(context.bodyAsClass(HashMap.class)).thenReturn(null);
         Assertions.assertDoesNotThrow( () -> controller.putPixel(context));
         Mockito.verify(context).status(400);
     }

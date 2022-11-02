@@ -43,11 +43,11 @@ public class PutPixelServiceTest {
 
         //when/then
         Assertions.assertThrows(Exception.class, () -> service.putPixel(
-                pixel.getX(),
-                pixel.getY(),
-                pixel.getColor()));
+                1,
+                2,
+                null));
 
         //then
-        Mockito.verify(repository, Mockito.never()).updatePixel(pixel);
+        Mockito.verify(repository, Mockito.never()).updatePixel(null);
     }
 }

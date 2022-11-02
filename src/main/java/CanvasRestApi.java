@@ -8,7 +8,6 @@ public class CanvasRestApi {
         app.get("/", ctx -> ctx.result("Hello World"));
         app.get("/pixels", controller::getCanvas);
         app.put("/pixels", controller::putPixel);
-        app.start(7070);
         return app;
     }
 }

@@ -4,6 +4,8 @@ import entities.Pixel;
 import io.javalin.http.Context;
 import services.CanvasService;
 
+import java.util.HashMap;
+
 public class CanvasController {
 
     CanvasService service;
@@ -17,16 +19,11 @@ public class CanvasController {
     }
 
     public void putPixel(Context context){
-        Pixel pixel;
         try{
-            pixel = context.bodyAsClass(Pixel.class);
-            if (pixel == null){
-                context.status(400);
-                return;
-            }
-            context.json(service.putPixel(pixel.getX(), pixel.getY(), pixel.getColor()));
+            var data = context.bodyAsClass(HashMap.class);
+            context.json(service.putPixel((int) data.get("x"), (int)data.get("y"), (String) data.get("color")));
         }catch (Exception e){
-            pixel = null;
+            context.status(400);
         }
     }
 }
