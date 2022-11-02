@@ -40,11 +40,12 @@ public class CanvasService {
     public Pixel putPixel(int x, int y, String color) throws Exception {
 
         var pixel = new Pixel(x, y, color);
-        repository.updatePixel(pixel);
 
         if(pixel.getColor() == null) {
             throw new Exception();
         }
+        repository.updatePixel(pixel);
+
         return pixel;
     }
 }

@@ -37,11 +37,20 @@ public class PutPixelServiceTest {
     }
 
     @Test
-    @DisplayName("Test if color is null")
+    @DisplayName("If pixel-color is null throw exception")
     void ifPixelColorIsNull(){
+        //given
         var pixel = new Pixel (1, 2, null);
 
-        Assertions.assertThrows(Exception.class, () -> service.putPixel(pixel.getX(), pixel.getY(), pixel.getColor()));
+        //when/then
+        Assertions.assertThrows(Exception.class, () -> service.putPixel(
+                pixel.getX(),
+                pixel.getY(),
+                pixel.getColor()));
+
+        //then
+        Mockito.verify(repository, Mockito.never()).updatePixel(pixel);
+
 
     }
 }

@@ -7,3 +7,6 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /uiDesigner.xml
+
+# Ignore idea-folder
+/.idea/
