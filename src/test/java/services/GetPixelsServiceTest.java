@@ -1,4 +1,4 @@
-package java.services;
+package services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,9 +29,11 @@ public class GetPixelsServiceTest {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
         var result = service.getPixels();
-        var expected = CanvasService.generateEmptyArray(2);
+        var expected = new String[50][75];
 
         //When
+        Arrays.stream(expected)
+                .forEach(x -> Arrays.fill(x, "white"));
 
         //Then
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result));
@@ -43,7 +45,11 @@ public class GetPixelsServiceTest {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
         var result = service.getPixels();
-        var expected = CanvasService.generateEmptyArray(2);
+        var expected = new String[50][75];
+
+        //When
+        Arrays.stream(expected)
+                .forEach(x -> Arrays.fill(x, "white"));
 
         //Then
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result));
@@ -57,27 +63,12 @@ public class GetPixelsServiceTest {
         var result = service.getPixels();
 
         //When
-        var expected = CanvasService.generateEmptyArray(2);
+        var expected = CanvasService.generateEmptyArray(50);
         System.out.println(Arrays.deepToString(service.getPixels()));
-
-        //Then
-        Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result));
-    }
-
-    @Test
-    @DisplayName("Get canvas2 (real-array)")
-    void test_size_3_array_pixels() {
-        //Given
-        Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
-        var result = service.getPixels();
-
-        //When
-        var expected = CanvasService.generateEmptyArray(2);
-        System.out.println(Arrays.deepToString(service.getPixels()));
-
 
         //Then
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result));
     }
 
 }
+
