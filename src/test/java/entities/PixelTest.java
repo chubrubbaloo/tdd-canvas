@@ -8,8 +8,8 @@ class PixelTest {
 
     @Test
     void PixelCreatedCorrectly(){
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 2;
         String color = "green";
 
         Pixel pixel = new Pixel(x, y, color);
@@ -20,9 +20,16 @@ class PixelTest {
     }
 
     @Test
+    void PixelConstructorThrowsWithBadArguments(){
+        assertThrows(IllegalArgumentException.class, () -> new Pixel(0, 1, "blue"));
+        assertThrows(IllegalArgumentException.class, () -> new Pixel(2, 0, "blue"));
+        assertThrows(IllegalArgumentException.class, () -> new Pixel(1, 2, null));
+    }
+
+    @Test
     void PixelCopiedCorrectly(){
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 2;
         String color = "green";
 
         Pixel pixel = new Pixel(x, y, color);
@@ -35,8 +42,8 @@ class PixelTest {
 
     @Test
     void PixelChangeColorCorrectly(){
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 2;
         String color = "green";
         Pixel pixel = new Pixel(x, y, color);
 
@@ -45,10 +52,11 @@ class PixelTest {
         assertEquals(newColor, pixel.getColor());
     }
 
+
     @Test
     void EqualsItself(){
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 2;
         String color1 = "green";
         Pixel pixel1 = new Pixel(x, y, color1);
         assertEquals(pixel1, pixel1);
@@ -56,8 +64,8 @@ class PixelTest {
 
     @Test
     void EqualsDifferentPixel(){
-        int x = 0;
-        int y = 0;
+        int x = 1;
+        int y = 2;
         String color1 = "green";
         String color2 = "blue";
         Pixel pixel1 = new Pixel(x, y, color1);
@@ -67,10 +75,10 @@ class PixelTest {
 
     @Test
     void NotEqualsDifferentPixel(){
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 0;
-        int y2 = 1;
+        int x1 = 1;
+        int y1 = 1;
+        int x2 = 1;
+        int y2 = 2;
         String color = "green";
         Pixel pixel1 = new Pixel(x1, y1, color);
         Pixel pixel2 = new Pixel(x2, y2, color);

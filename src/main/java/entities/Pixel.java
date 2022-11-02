@@ -6,6 +6,16 @@ public class Pixel {
     private String color;
 
     public Pixel(int x, int y, String color){
+        if(x <= 0){
+            throw new IllegalArgumentException("x greater then 0");
+        }
+        if(y <= 0){
+            throw new IllegalArgumentException("y greater then 0");
+        }
+        if(color == null){
+            throw new IllegalArgumentException("a color must be specified");
+        }
+
         this.x = x;
         this.y = y;
         this.color = color;
