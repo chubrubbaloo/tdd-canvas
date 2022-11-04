@@ -45,7 +45,11 @@ class CanvasControllerTest {
 
         Mockito.when(context.bodyAsClass(HashMap.class)).thenReturn(data);
         Assertions.assertDoesNotThrow( () ->
-                Mockito.when(service.putPixel(pixel.getX(), pixel.getY(), pixel.getColor())).thenReturn(pixel)
+                Mockito.when(service.putPixel(
+                        pixel.getX(),
+                        pixel.getY(),
+                        pixel.getColor()
+                )).thenReturn(pixel)
         );
         Assertions.assertDoesNotThrow( () -> controller.putPixel(context));
         Mockito.verify(context).json(pixel);
