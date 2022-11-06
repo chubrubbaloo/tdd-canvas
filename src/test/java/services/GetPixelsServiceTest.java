@@ -25,24 +25,8 @@ public class GetPixelsServiceTest {
     }
 
     @Test
-    @DisplayName("Get empty canvas (50x75-array)")
-    void get_empty_canvas_array() {
-        //Given
-        Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
-        var result = service.getPixels();
-        var expected = new String[50][75];
-
-        //When
-        Arrays.stream(expected)
-                .forEach(x -> Arrays.fill(x, "white"));
-
-        //Then
-        Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result));
-    }
-
-    @Test
     @DisplayName("Get white canvas (50x75-array)")
-    void get_white_canvas_from_pixels() {
+    void get_blank_canvas_from_pixels() {
         //Given
         Mockito.when(repository.getAllPixels()).thenReturn(new ArrayList<>());
         var result = service.getPixels();
